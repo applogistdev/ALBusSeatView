@@ -1,6 +1,5 @@
 # ALBusSeatView
 
-[![CI Status](https://img.shields.io/travis/sonifex/ALBusSeatView.svg?style=flat)](https://travis-ci.org/sonifex/ALBusSeatView)
 [![Version](https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
 [![License](https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
 [![Platform](https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
@@ -22,7 +21,7 @@ pod 'ALBusSeatView'
 
 ## Author
 
-sonifex, soner.guler@applogist.com
+sonifex, sonerguler93@gmail.com
 
 ## License
 
