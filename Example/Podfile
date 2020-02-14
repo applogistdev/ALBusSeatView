@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ALBusSeatView_Example' do
+  pod 'ALBusSeatView', :path => '../'
+
+  target 'ALBusSeatView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
