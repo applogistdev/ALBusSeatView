@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ALBusSeatView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ALBusSeatView.'
+  s.summary          = 'A customizable bus seat selection view'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,24 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'ALBusSeatView allows you to build the bus seat selection process easier and fully customizable'
 
-  s.homepage         = 'https://github.com/sonifex/ALBusSeatView'
+  s.homepage         = 'https://github.com/applogistdev/ALBusSeatView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'sonifex' => 'soner.guler@applogist.com' }
-  s.source           = { :git => 'https://github.com/sonifex/ALBusSeatView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'sonifex' => 'sonerguler93@gmail.com' }
+  s.source           = { :git => 'https://github.com/applogistdev/ALBusSeatView.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/sonifex'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.3'
 
   s.source_files = 'ALBusSeatView/Classes/**/*'
-  
+  s.swift_version = "5.0"
   # s.resource_bundles = {
   #   'ALBusSeatView' => ['ALBusSeatView/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

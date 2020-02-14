@@ -8,25 +8,25 @@
 import UIKit
 
 public protocol ALBusSeatViewDataSource {
-    func seatView(_ seatView: ALBusSeatView, seatTypeForIndex index: Int) -> ALBusSeatType
-    func seatView(_ seatView: ALBusSeatView, seatNumberForIndex index: Int) -> String
+    func seatView(_ seatView: ALBusSeatView, seatTypeForIndex indexPath: IndexPath) -> ALBusSeatType
+    func seatView(_ seatView: ALBusSeatView, seatNumberForIndex indexPath: IndexPath) -> String
     func numberOfSections(in seatView: ALBusSeatView) -> Int
     func seatView(_ seatView: ALBusSeatView, numberOfSeatInSection section: Int) -> Int
 }
 
 public protocol ALBusSeatViewDelegate: class {
-    func seatView(_ seatView: ALBusSeatView, shouldSelectAtIndex index: Int, seatType: ALBusSeatType) -> Bool
-    func seatView(_ seatView: ALBusSeatView, shouldDeSelectAtIndex index: Int, seatType: ALBusSeatType) -> Bool
-    func seatView(_ seatView: ALBusSeatView, didSelectAtIndex index: Int, seatType: ALBusSeatType)
-    func seatView(_ seatView: ALBusSeatView, deSelectAtIndex index: Int, seatType: ALBusSeatType)
+    func seatView(_ seatView: ALBusSeatView, shouldSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool
+    func seatView(_ seatView: ALBusSeatView, shouldDeSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool
+    func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType)
+    func seatView(_ seatView: ALBusSeatView, deSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType)
 }
 
 // To make methods optional!
 public extension ALBusSeatViewDelegate {
-    func seatView(_ seatView: ALBusSeatView, shouldSelectAtIndex index: Int, seatType: ALBusSeatType) -> Bool { return true }
-    func seatView(_ seatView: ALBusSeatView, shouldDeSelectAtIndex index: Int, seatType: ALBusSeatType) -> Bool { return true }
-    func seatView(_ seatView: ALBusSeatView, didSelectAtIndex index: Int, seatType: ALBusSeatType) {}
-    func seatView(_ seatView: ALBusSeatView, deSelectAtIndex index: Int, seatType: ALBusSeatType) {}
+    func seatView(_ seatView: ALBusSeatView, shouldSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool { return true }
+    func seatView(_ seatView: ALBusSeatView, shouldDeSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool { return true }
+    func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) {}
+    func seatView(_ seatView: ALBusSeatView, deSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) {}
 }
 
 
@@ -134,8 +134,8 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID,
                                                       for: indexPath) as! ALBusSeatCell
         
-        guard let seatType = dataSource?.seatView(self, seatTypeForIndex: indexPath.item),
-            let seatNumber = dataSource?.seatView(self, seatNumberForIndex: indexPath.item) else {
+        guard let seatType = dataSource?.seatView(self, seatTypeForIndex: indexPath),
+            let seatNumber = dataSource?.seatView(self, seatNumberForIndex: indexPath) else {
             return cell
         }
         cell.title = seatNumber
@@ -203,33 +203,31 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         return config.marginBetweenSeats / 2
     }
     
-//    public func collectionView(_ collectionView: UICollectionView,
-//                               layout collectionViewLayout: UICollectionViewLayout,
-//                               referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return .zero
-//    }
-    
-    
-    
     public func collectionView(_ collectionView: UICollectionView,
                                viewForSupplementaryElementOfKind kind: String,
                                at indexPath: IndexPath) -> UICollectionReusableView {
-        
+                
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                          withReuseIdentifier: headerID,
                                                                          for: indexPath) as! ALBusSeatViewHeaderView
-        headerView.imageView.image = config.busFrontImage
-        if config.busFrontImage == nil {
-            headerView.frame = .zero
+        
+        if indexPath.section == 0 && config.busFrontImage != nil {
+            headerView.imageView.image = config.busFrontImage
+        }  else if indexPath.section > 0 {
+            headerView.imageView.image = config.floorSeperatorImage
         }
+        
         return headerView
     }
+    
     
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 && config.busFrontImage != nil {
             return CGSize(width: config.busFrontImageWidth, height: collectionView.frame.height)
+        } else if section > 0 {
+            return CGSize(width: config.floorSeperatorWidth, height: collectionView.frame.height)
         } else {
             return .zero
         }
@@ -261,12 +259,10 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
             return
         }
         
-        print("DidSelect at:\(indexPath.item) \(cell.type)")
-        
         if cell.type == .empty {
-            delegate?.seatView(self, didSelectAtIndex: indexPath.item, seatType: cell.type)
+            delegate?.seatView(self, didSelectAtIndex: indexPath, seatType: cell.type)
         } else if cell.type == .selected {
-            delegate?.seatView(self, deSelectAtIndex: indexPath.item, seatType: cell.type)
+            delegate?.seatView(self, deSelectAtIndex: indexPath, seatType: cell.type)
         }
     }
     
@@ -278,13 +274,9 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if cell.type == .empty {
-            print("Should Select at:\(indexPath.item)")
-            return delegate?.seatView(self, shouldSelectAtIndex: indexPath.item,
-            seatType: cell.type) ?? true
+            return delegate?.seatView(self, shouldSelectAtIndex: indexPath, seatType: cell.type) ?? true
         } else if cell.type == .selected {
-            print("Should DeSelect at:\(indexPath.item)")
-            return delegate?.seatView(self, shouldDeSelectAtIndex: indexPath.item,
-            seatType: cell.type) ?? true
+            return delegate?.seatView(self, shouldDeSelectAtIndex: indexPath, seatType: cell.type) ?? true
         }
         
         return false

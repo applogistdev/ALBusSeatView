@@ -28,5 +28,8 @@ public class ALBusSeatViewConfig {
     open var busFrontImage: UIImage? = nil
     open var busFrontImageWidth: CGFloat = 50
     
+    open var floorSeperatorWidth: CGFloat = 50
+    open var floorSeperatorImage: UIImage? = nil
+    
     public init() { }
 }
