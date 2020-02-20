@@ -13,7 +13,7 @@ struct SeatStub {
     let id: String
     let number: Int
     let salable: Bool
-    let gender: Bool
+    var gender: Bool
     let hall: Bool
 }
 
@@ -82,9 +82,10 @@ class MyViewController : UIViewController {
 
 extension MyViewController: ALBusSeatViewDelegate {
     
-    func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) {
+    func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType, selectionType: ALSelectionType) {
         
-        let stub = seatList[indexPath.section][indexPath.item]
+        var stub = seatList[indexPath.section][indexPath.item]
+        stub.gender = selectionType == .man ? true : false
         selectedSeatlist.append(stub)
         seatView.reload()
     }
