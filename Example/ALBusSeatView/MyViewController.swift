@@ -36,8 +36,11 @@ class MyViewController : UIViewController {
 //        config.busFrontImage = UIImage(named: "bus-front-view")
 //        config.busFrontImageWidth = 120
 //        config.floorSeperatorImage = UIImage(named: "bus-front-view")
+        config.seatRemoveImage = UIImage(named: "iconRemoveButton")
         config.floorSeperatorWidth = 120
         config.centerHallInfoText = "Tüm koltukları görebilmek için kaydırınız!"
+        
+        
         seatView = ALBusSeatView(withConfig: config)
         seatView?.delegate = self
         seatView?.dataSource = self
