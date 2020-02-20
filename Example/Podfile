@@ -1,11 +1,8 @@
 use_frameworks!
+platform :ios, '10.3'
 
 target 'ALBusSeatView_Example' do
   pod 'ALBusSeatView', :path => '../'
 
-  target 'ALBusSeatView_Tests' do
-    inherit! :search_paths
-
-    
-  end
+  
 end
