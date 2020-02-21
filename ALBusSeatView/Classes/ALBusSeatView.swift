@@ -35,7 +35,7 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
     // MARK: - Public
     public var config = ALBusSeatViewConfig() {
         didSet {
-            configureInfoLabel()
+            applyConfigs()
             setNeedsLayout()
         }
     }
@@ -113,7 +113,7 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         collectionView.backgroundView = collectionBGView
         collectionBGView.addSubview(infoLabel)
         
-        configureInfoLabel()
+        applyConfigs()
         
         // Drive position setup
         if config.leftHandDrivePosition == true {
@@ -129,10 +129,11 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
                                 withReuseIdentifier: headerID)
     }
     
-    private func configureInfoLabel() {
+    private func applyConfigs() {
         infoLabel.font = config.centerHallInfoTextFont
         infoLabel.text = config.centerHallInfoText
         infoLabel.textColor = config.centerHallInfoTextColor
+        tooltip.title = config.tooltipText
     }
     
     public override func layoutSubviews() {

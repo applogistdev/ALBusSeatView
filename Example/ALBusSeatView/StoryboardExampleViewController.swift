@@ -29,8 +29,10 @@ class StoryboardExampleViewController: UIViewController {
         config.floorSeperatorImage = UIImage(named: "bus-docker-front-view")
         config.seatRemoveImage = UIImage(named: "iconRemoveButton")
         config.floorSeperatorWidth = 60
-        config.centerHallInfoText = "Tüm koltukları görebilmek için kaydırınız!"
+        config.centerHallInfoText = "Swipe!"
         config.centerHallHeight = 40
+        config.tooltipText = "Select"
+        
         seatView.config = config
         seatView.delegate = self
         seatView.dataSource = self

@@ -28,6 +28,12 @@ class ALSelectionTooltip: UIView {
         }
     }
     
+    var title: String = "" {
+        didSet {
+            infoLabel.text = title
+        }
+    }
+    
     
     private lazy var bgImageView: UIImageView = {
         let imgView = UIImageView()
@@ -70,7 +76,6 @@ class ALSelectionTooltip: UIView {
         lbl.lineBreakMode = .byClipping
         lbl.textAlignment = .center
         lbl.textColor = .black
-        lbl.text = "Cinsiyet Seçiniz"
         lbl.font = .systemFont(ofSize: 12)
         return lbl
     }()

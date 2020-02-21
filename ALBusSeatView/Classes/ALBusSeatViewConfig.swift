@@ -31,5 +31,7 @@ public class ALBusSeatViewConfig {
     open var floorSeperatorWidth: CGFloat = 50
     open var floorSeperatorImage: UIImage? = nil
     
+    open var tooltipText: String = "Select Gender"
+    
     public init() { }
 }
