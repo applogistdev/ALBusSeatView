@@ -8,16 +8,65 @@
 import UIKit
 
 public protocol ALBusSeatViewDataSource {
+
+    /// Asks the data source to return seat type given indexPath of seatView
+    /// - Parameters:
+    ///   - seatView: SeatView requesting the seatType
+    ///   - indexPath: Indexpath indicating a seat in seatView
     func seatView(_ seatView: ALBusSeatView, seatTypeForIndex indexPath: IndexPath) -> ALBusSeatType
+    
+    
+    /// Asks the data source to return seat number text given indexPath of seatView
+    /// - Parameters:
+    ///   - seatView: SeatView requesting the seat number text
+    ///   - indexPath: Indexpath indicating a seat in seatView
     func seatView(_ seatView: ALBusSeatView, seatNumberForIndex indexPath: IndexPath) -> String
+    
+    
+    /// Asks the data source to return number of section given seatView
+    /// - Parameter seatView: SeatView requesting the number of section
     func numberOfSections(in seatView: ALBusSeatView) -> Int
+    
+    
+    /// Asks the data source to return number of seat in a given section of a seatView
+    /// - Parameters:
+    ///   - seatView: SeatView requesting the number of seat given section
+    ///   - section: An index number indicating a section in seatView
     func seatView(_ seatView: ALBusSeatView, numberOfSeatInSection section: Int) -> Int
 }
 
 public protocol ALBusSeatViewDelegate: class {
+    
+    /// Asks the delegate if the specified seat should be selected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that being selected
+    ///   - seatType: The current type of seat which is about to select
     func seatView(_ seatView: ALBusSeatView, shouldSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool
+    
+    
+    /// Asks the delegate if the specified seat should be deSelected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that being deSelected
+    ///   - seatType: The current type of seat which is about to deSelect
     func seatView(_ seatView: ALBusSeatView, shouldDeSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool
+    
+    
+    /// Tells the delegate that the specified seat now selected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that selected
+    ///   - seatType: The previous type of seat which is selected
+    ///   - selectionType: The gender type that selected by user
     func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType, selectionType: ALSelectionType)
+    
+    
+    /// Tells the delegate that the specified seat now deSelected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that deSelected
+    ///   - seatType: The previous type of seat which is deSelected
     func seatView(_ seatView: ALBusSeatView, deSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType)
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Seat Type Status
 public enum ALBusSeatType: Int {
     /// Free to pick
     case empty
