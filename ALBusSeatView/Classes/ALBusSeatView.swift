@@ -33,7 +33,12 @@ public extension ALBusSeatViewDelegate {
 public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Public
-    public var config = ALBusSeatViewConfig()
+    public var config = ALBusSeatViewConfig() {
+        didSet {
+            configureInfoLabel()
+            setNeedsLayout()
+        }
+    }
     
     public var dataSource: ALBusSeatViewDataSource?
     public var delegate: ALBusSeatViewDelegate?
@@ -87,12 +92,15 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        commonInit()
     }
     
     // MARK: - Public
     public func reload() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     
@@ -105,9 +113,7 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         collectionView.backgroundView = collectionBGView
         collectionBGView.addSubview(infoLabel)
         
-        infoLabel.font = config.centerHallInfoTextFont
-        infoLabel.text = config.centerHallInfoText
-        infoLabel.textColor = config.centerHallInfoTextColor
+        configureInfoLabel()
         
         // Drive position setup
         if config.leftHandDrivePosition == true {
@@ -121,6 +127,12 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         collectionView.register(ALBusSeatViewHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: headerID)
+    }
+    
+    private func configureInfoLabel() {
+        infoLabel.font = config.centerHallInfoTextFont
+        infoLabel.text = config.centerHallInfoText
+        infoLabel.textColor = config.centerHallInfoTextColor
     }
     
     public override func layoutSubviews() {
