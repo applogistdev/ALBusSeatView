@@ -47,7 +47,7 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         let view = UICollectionView(frame: bounds, collectionViewLayout: layout)
         view.collectionViewLayout = layout
         view.register(ALBusSeatCell.self, forCellWithReuseIdentifier: cellID)
-        view.backgroundColor = .cyan
+        view.backgroundColor = .clear
         view.delegate = self
         view.dataSource = self
         view.showsHorizontalScrollIndicator = false
@@ -98,7 +98,7 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
     
     // MARK: - Private
     private func commonInit() {
-        backgroundColor = .brown
+        backgroundColor = .clear
         clipsToBounds = false
         addSubview(collectionView)
         
