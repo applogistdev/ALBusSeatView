@@ -165,9 +165,9 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         
         switch seatType {
         case .empty:
-            cell.coverView.backgroundColor = config.emptySeatBGColor
+            cell.coverView.backgroundColor = config.seatEmptyBGColor
         case .selected:
-            cell.coverView.backgroundColor = config.selectedSeatBGColor
+            cell.coverView.backgroundColor = config.seatSelectedBGColor
             if config.seatRemoveImage != nil {
                 cell.removeImageView.isHidden = false
                 cell.removeImageView.image = config.seatRemoveImage
@@ -175,9 +175,9 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
             cell.label.font = config.seatNumberSelectedFont
             cell.label.textColor = config.seatNumberSelectedColor
         case .soldMan:
-            cell.coverView.backgroundColor = config.soldManBGColor
+            cell.coverView.backgroundColor = config.seatSoldManBGColor
         case .soldWoman:
-            cell.coverView.backgroundColor = config.soldWomanBGColor
+            cell.coverView.backgroundColor = config.seatSoldWomanBGColor
         case .none:
             cell.coverView.backgroundColor = .clear
             cell.isUserInteractionEnabled = false
