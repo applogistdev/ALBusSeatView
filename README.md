@@ -1,17 +1,17 @@
 # ALBusSeatView 💺
 
-[![Version](https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
-[![License](https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
-[![Platform](https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
+[![Version](https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)[![License](https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)[![Platform](https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Screenshots
-| 1             |  2 |
-:-------------------------:|:-------------------------:
-![](./Screenshots/ss1.png)  |  ![](./Screenshots/ss2.png)
+|           Start            |           Select           |      Gender Selection      |           Voilà!           |
+| :------------------------: | :------------------------: | :------------------------: | :------------------------: |
+| ![](./Screenshots/ss1.png) | ![](./Screenshots/ss2.png) | ![](./Screenshots/ss3.png) | ![](./Screenshots/ss4.png) |
+
+
 
 
 ## Installation
