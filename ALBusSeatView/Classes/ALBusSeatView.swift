@@ -7,17 +7,69 @@
 
 import UIKit
 
+/// This protocol represents the data model of seatView
 public protocol ALBusSeatViewDataSource {
+    
+    /// Asks the data source to return seat type given indexPath of seatView
+    /// - Parameters:
+    ///   - seatView: SeatView requesting the seatType
+    ///   - indexPath: Indexpath indicating a seat in seatView
     func seatView(_ seatView: ALBusSeatView, seatTypeForIndex indexPath: IndexPath) -> ALBusSeatType
+    
+    
+    /// Asks the data source to return seat number text given indexPath of seatView
+    /// - Parameters:
+    ///   - seatView: SeatView requesting the seat number text
+    ///   - indexPath: Indexpath indicating a seat in seatView
     func seatView(_ seatView: ALBusSeatView, seatNumberForIndex indexPath: IndexPath) -> String
+    
+    
+    /// Asks the data source to return number of section given seatView
+    /// - Parameter seatView: SeatView requesting the number of section
     func numberOfSections(in seatView: ALBusSeatView) -> Int
+    
+    
+    /// Asks the data source to return number of seat in a given section of a seatView
+    /// - Parameters:
+    ///   - seatView: SeatView requesting the number of seat given section
+    ///   - section: An index number indicating a section in seatView
     func seatView(_ seatView: ALBusSeatView, numberOfSeatInSection section: Int) -> Int
 }
 
+
+/// This protocol represents the display and behaviour of the seatView.
 public protocol ALBusSeatViewDelegate: class {
+    
+    /// Asks the delegate if the specified seat should be selected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that being selected
+    ///   - seatType: The current type of seat which is about to select
     func seatView(_ seatView: ALBusSeatView, shouldSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool
+    
+    
+    /// Asks the delegate if the specified seat should be deSelected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that being deSelected
+    ///   - seatType: The current type of seat which is about to deSelect
     func seatView(_ seatView: ALBusSeatView, shouldDeSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType) -> Bool
+    
+    
+    /// Tells the delegate that the specified seat now selected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that selected
+    ///   - seatType: The previous type of seat which is selected
+    ///   - selectionType: The gender type that selected by user
     func seatView(_ seatView: ALBusSeatView, didSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType, selectionType: ALSelectionType)
+    
+    
+    /// Tells the delegate that the specified seat now deSelected
+    /// - Parameters:
+    ///   - seatView: SeatView that is making this request
+    ///   - indexPath: The indexPath that deSelected
+    ///   - seatType: The previous type of seat which is deSelected
     func seatView(_ seatView: ALBusSeatView, deSelectAtIndex indexPath: IndexPath, seatType: ALBusSeatType)
 }
 
@@ -30,21 +82,11 @@ public extension ALBusSeatViewDelegate {
 }
 
 
-public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    // MARK: - Public
-    public var config = ALBusSeatViewConfig() {
-        didSet {
-            applyConfigs()
-            setNeedsLayout()
-        }
-    }
-    
-    public var dataSource: ALBusSeatViewDataSource?
-    public var delegate: ALBusSeatViewDelegate?
-    
+/// A view that presents bus seats
+public class ALBusSeatView: UIView {
     
     // MARK: - Private
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -80,12 +122,33 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
     }()
     
     
+    // MARK: - Public
+    
+    /// Used to customize the interface
+    public var config = ALBusSeatViewConfig() {
+        didSet {
+            applyConfigs()
+            setNeedsLayout()
+        }
+    }
+    
+    /// Object as datasource for BusSeatView
+    public var dataSource: ALBusSeatViewDataSource?
+    
+    /// Object as delegate for BusSeatView
+    public var delegate: ALBusSeatViewDelegate?
+    
+    
+    /// Initializes and return ALBusSeatView with configuration
+    /// - Parameter config: The object that used for customization
     public init(withConfig config: ALBusSeatViewConfig) {
         super.init(frame: .zero)
         self.config = config
         commonInit()
     }
     
+    /// Initializes and return ALBusSeatView with default configuration
+    /// - Parameter frame: The frame for BusSeatView
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -96,11 +159,24 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         commonInit()
     }
     
-    // MARK: - Public
+    
+    /// Reloads the all data for seatView
     public func reload() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    /// Lays out subviews
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.frame = bounds
+        
+        let colW = collectionView.frame.width
+        let infoX = config.busFrontImage != nil ? config.busFrontImageWidth : 20.0
+        let infoWidth = config.busFrontImage != nil ? colW - config.busFrontImageWidth : colW - 20.0
+        let infoFrame = CGRect(x: infoX, y: 0, width: infoWidth, height: collectionView.frame.height)
+        infoLabel.frame = infoFrame
     }
     
     
@@ -136,16 +212,10 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         tooltip.title = config.tooltipText
     }
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        collectionView.frame = bounds
-        
-        let colW = collectionView.frame.width
-        let infoX = config.busFrontImage != nil ? config.busFrontImageWidth : 20.0
-        let infoWidth = config.busFrontImage != nil ? colW - config.busFrontImageWidth : colW - 20.0
-        let infoFrame = CGRect(x: infoX, y: 0, width: infoWidth, height: collectionView.frame.height)
-        infoLabel.frame = infoFrame
-    }
+}
+
+/// :nodoc:
+extension ALBusSeatView:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -165,9 +235,9 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         
         switch seatType {
         case .empty:
-            cell.coverView.backgroundColor = config.emptySeatBGColor
+            cell.coverView.backgroundColor = config.seatEmptyBGColor
         case .selected:
-            cell.coverView.backgroundColor = config.selectedSeatBGColor
+            cell.coverView.backgroundColor = config.seatSelectedBGColor
             if config.seatRemoveImage != nil {
                 cell.removeImageView.isHidden = false
                 cell.removeImageView.image = config.seatRemoveImage
@@ -175,9 +245,9 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
             cell.label.font = config.seatNumberSelectedFont
             cell.label.textColor = config.seatNumberSelectedColor
         case .soldMan:
-            cell.coverView.backgroundColor = config.soldManBGColor
+            cell.coverView.backgroundColor = config.seatSoldManBGColor
         case .soldWoman:
-            cell.coverView.backgroundColor = config.soldWomanBGColor
+            cell.coverView.backgroundColor = config.seatSoldWomanBGColor
         case .none:
             cell.coverView.backgroundColor = .clear
             cell.isUserInteractionEnabled = false
@@ -233,7 +303,6 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         
         return headerView
     }
-    
     
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
@@ -319,8 +388,8 @@ extension ALBusSeatView {
         let xOffset = collectionView.contentOffset.x
         let leftMarginOk = marginThreshold <= converted.x - xOffset
         let rightMarginOk = marginThreshold <= (frame.width - converted.x + xOffset)
-//        debugPrint("threshold:\(marginThreshold) xOffset:\(xOffset) leftMargin: \(converted.x + abs(xOffset)) rightMargin:\(frame.width - converted.x)")
-//        debugPrint("leftOK: \(leftMarginOk) - rightOK: \(rightMarginOk)")
+        //        debugPrint("threshold:\(marginThreshold) xOffset:\(xOffset) leftMargin: \(converted.x + abs(xOffset)) rightMargin:\(frame.width - converted.x)")
+        //        debugPrint("leftOK: \(leftMarginOk) - rightOK: \(rightMarginOk)")
         if !leftMarginOk {
             let currentPoint = collectionView.contentOffset
             let targetPoint = CGPoint(x: currentPoint.x - marginThreshold, y: 0)
@@ -358,6 +427,7 @@ extension ALBusSeatView {
         tooltip.show(from: collectionView, origin: converted)
     }
     
+    /// :nodoc:
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         
         let pointForTooltip = tooltip.convert(point, from: self)
