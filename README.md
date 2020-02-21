@@ -9,7 +9,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Screenshots
 |           Start            |           Select           |      Gender Selection      |           Voilà!           |
 | :------------------------: | :------------------------: | :------------------------: | :------------------------: |
-| ![](./Screenshots/ss1.png) | ![](./Screenshots/ss2.png) | ![](./Screenshots/ss3.png) | ![](./Screenshots/ss4.png) |
+| ![](https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss1.png) | ![](https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss2.png) | ![](https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss3.png) | ![](https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss4.png) |
 
 
 

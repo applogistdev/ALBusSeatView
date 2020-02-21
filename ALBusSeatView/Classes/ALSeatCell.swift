@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+/// Bus SeatView UICollectionViewCell
 public class ALBusSeatCell: UICollectionViewCell {
     
     var type: ALBusSeatType = .none
@@ -35,6 +37,9 @@ public class ALBusSeatCell: UICollectionViewCell {
         return lbl
     }()
     
+    
+    /// Initializes and returns a newly allocated view object with the specified frame rectangle.
+    /// - Parameter frame: Frame of Seat
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -51,6 +56,8 @@ public class ALBusSeatCell: UICollectionViewCell {
         bringSubviewToFront(removeImageView)
     }
     
+    
+    /// Lays out subviews
     public override func layoutSubviews() {
         super.layoutSubviews()
         coverView.frame = CGRect(x: 3, y: 3, width: bounds.width-6, height: bounds.height-6)
@@ -58,6 +65,8 @@ public class ALBusSeatCell: UICollectionViewCell {
         removeImageView.frame = CGRect(x: coverView.frame.width-8, y: 0, width: 15, height: 15)
     }
     
+    
+    /// Use to clean up view for reuse
     public override func prepareForReuse() {
         super.prepareForReuse()
         backgroundColor = .clear

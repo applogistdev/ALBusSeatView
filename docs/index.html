@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ALBusSeatView  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="ALBusSeatView  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          ALBusSeatView Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">ALBusSeatView Reference</a>
+      <img class="carat" src="img/carat.png" />
+      ALBusSeatView  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ALBusLeftHandDriveLayout.html">ALBusLeftHandDriveLayout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ALBusSeatCell.html">ALBusSeatCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ALBusSeatView.html">ALBusSeatView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ALBusSeatViewConfig.html">ALBusSeatViewConfig</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ALBusSeatType.html">ALBusSeatType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ALSelectionType.html">ALSelectionType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ALBusSeatViewDataSource.html">ALBusSeatViewDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ALBusSeatViewDelegate.html">ALBusSeatViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 id='albusseatview' class='heading'>ALBusSeatView 💺</h1>
+
+<p><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat" alt="Version"></a><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat" alt="License"></a><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat" alt="Platform"></a></p>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+<h2 id='screenshots' class='heading'>Screenshots</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Start</th>
+<th style="text-align: center">Select</th>
+<th style="text-align: center">Gender Selection</th>
+<th style="text-align: center">Voilà!</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss1.png" alt=""></td>
+<td style="text-align: center"><img src="https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss2.png" alt=""></td>
+<td style="text-align: center"><img src="https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss3.png" alt=""></td>
+<td style="text-align: center"><img src="https://raw.githubusercontent.com/applogistdev/ALBusSeatView/develop/Screenshots/ss4.png" alt=""></td>
+</tr>
+</tbody></table>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>ALBusSeatView is available through <a href="https://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'ALBusSeatView'</span>
+</code></pre>
+<h2 id='usage' class='heading'>Usage</h2>
+<pre class="highlight swift"><code>
+<span class="c1">// If you want to config more</span>
+<span class="c1">// let config = ALBusSeatViewConfig()</span>
+<span class="c1">// ALBusSeatView(withConfig: config)</span>
+
+<span class="k">let</span> <span class="nv">seatView</span> <span class="o">=</span> <span class="kt">ALBusSeatView</span><span class="p">()</span>
+<span class="n">seatView</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+<span class="n">seatView</span><span class="o">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="k">self</span>
+
+<span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">seatView</span><span class="p">)</span>
+
+</code></pre>
+<h2 id='config-albusseatviewconfig' class='heading'>Config (ALBusSeatViewConfig)</h2>
+<h4 id='layout' class='heading'>Layout</h4>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Desc</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>leftHandDrivePosition</td>
+<td>Left drive position status</td>
+<td>True</td>
+<td>Bool</td>
+</tr>
+<tr>
+<td>marginBetweenSeats</td>
+<td>Margin between seats</td>
+<td>5.0</td>
+<td>CGFloat</td>
+</tr>
+</tbody></table>
+<h4 id='seat' class='heading'>Seat</h4>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Desc</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>seatEmptyBGColor</td>
+<td>Empty seat color</td>
+<td>.white</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatSelectedBGColor</td>
+<td>Selected seat color</td>
+<td>.green</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatSoldWomanBGColor</td>
+<td>Seat color purchased by woman</td>
+<td>.red</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatSoldManBGColor</td>
+<td>Seat color purchased by man</td>
+<td>.blue</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatCornerRadius</td>
+<td>Seat corner radius</td>
+<td>8.0</td>
+<td>CGFloat</td>
+</tr>
+<tr>
+<td>seatBorderColor</td>
+<td>Seat border color</td>
+<td>.clear</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatBorderWidth</td>
+<td>Seat border width</td>
+<td>0</td>
+<td>CGFloat</td>
+</tr>
+<tr>
+<td>seatShadowColor</td>
+<td>Seat shadow color</td>
+<td>.lightGray</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatShadowRadius</td>
+<td>Seat shadow radius</td>
+<td>5.0</td>
+<td>CGFloat</td>
+</tr>
+<tr>
+<td>seatShadowSize</td>
+<td>Seat shadow size</td>
+<td>1,1</td>
+<td>CGSize</td>
+</tr>
+<tr>
+<td>seatShadowOpacity</td>
+<td>Seat shadow opacity</td>
+<td>0.7</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>seatRemoveImage</td>
+<td>The remove button image for selected seat</td>
+<td>nil</td>
+<td>UIImage?</td>
+</tr>
+<tr>
+<td>seatNumberFont</td>
+<td>Seat number label font</td>
+<td>.system(15)</td>
+<td>UIFont</td>
+</tr>
+<tr>
+<td>seatNumberSelectedFont</td>
+<td>Selected seat number label font</td>
+<td>.systemBold(15)</td>
+<td>UIFont</td>
+</tr>
+<tr>
+<td>seatNumberColor</td>
+<td>Seat number label color</td>
+<td>.black</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatNumberSelectedColor</td>
+<td>Selected seat number label color</td>
+<td>.white</td>
+<td>UIColor</td>
+</tr>
+</tbody></table>
+<h4 id='hall' class='heading'>Hall</h4>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Desc</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>centerHallHeight</td>
+<td>Bus hall height</td>
+<td>20</td>
+<td>CGFloat</td>
+</tr>
+<tr>
+<td>centerHallInfoText</td>
+<td>Hall information label text</td>
+<td>&ldquo;&rdquo;</td>
+<td>String</td>
+</tr>
+<tr>
+<td>centerHallInfoTextColor</td>
+<td>Hall information label text color</td>
+<td>.black</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>centerHallInfoTextFont</td>
+<td>Hall information label text font</td>
+<td>.system(12)</td>
+<td>UIFont</td>
+</tr>
+</tbody></table>
+<h4 id='bus-front-section' class='heading'>Bus Front Section</h4>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Desc</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>busFrontImage</td>
+<td>Bus front image</td>
+<td>nil</td>
+<td>UIImage?</td>
+</tr>
+<tr>
+<td>busFrontImageWidth</td>
+<td>Bus front image width</td>
+<td>50</td>
+<td>CGFloat</td>
+</tr>
+</tbody></table>
+<h4 id='bus-floor-section' class='heading'>Bus Floor Section</h4>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Desc</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>floorSeperatorWidth</td>
+<td>Floor section  width</td>
+<td>50</td>
+<td>CGFloat</td>
+</tr>
+<tr>
+<td>floorSeperatorImage</td>
+<td>Floor section image</td>
+<td>nil</td>
+<td>UIImage?</td>
+</tr>
+</tbody></table>
+<h4 id='gender-tooltip' class='heading'>Gender Tooltip</h4>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Desc</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tooltipText</td>
+<td>Gender selection tooltip title</td>
+<td>&ldquo;Select Gender&rdquo;</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>sonifex, <a href="mailto:sonerguler93@gmail.com">sonerguler93@gmail.com</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>ALBusSeatView is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://github.com/applogistdev/ALBusSeatView" target="_blank" rel="external">sonifex</a>. All rights reserved. (Last updated: 2020-02-21)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

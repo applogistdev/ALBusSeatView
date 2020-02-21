@@ -9,6 +9,9 @@ import UIKit
 
 /// Left hand drive layout 
 public class ALBusLeftHandDriveLayout: UICollectionViewFlowLayout {
+    
+    /// Return Left Handed Custom Layout Attributes
+    /// - Parameter rect: Elements Rect
     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let attributes = super.layoutAttributesForElements(in: rect)
         var attributesCopy = [UICollectionViewLayoutAttributes]()
