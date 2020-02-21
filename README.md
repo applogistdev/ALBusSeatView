@@ -8,6 +8,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Screenshots
+| 1             |  2 |
+:-------------------------:|:-------------------------:
+![](./Screenshots/ss1.png)  |  ![](./Screenshots/ss2.png)
+
 ## Requirements
 
 ## Installation
