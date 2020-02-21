@@ -7,8 +7,14 @@
 
 import UIKit
 
+
+/// Bus SeatView User Selection Type
 public enum ALSelectionType: String {
-    case woman, man
+    /// Woman Selection
+    case woman
+    
+    /// Man Selection
+    case man
 }
 
 class ALSelectionTooltip: UIView {

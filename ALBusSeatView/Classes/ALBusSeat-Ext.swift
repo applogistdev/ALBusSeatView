@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIView {
+    
+    /// Return top center position
     var topCenter: CGPoint {
         let x = frame.width / 2
         return CGPoint(x: x, y: 0)
@@ -15,25 +17,15 @@ extension UIView {
 }
 
 extension UIImage {
-    static func bundleImage(named: String) -> UIImage? {
-        let bundle = Bundle(for: self)
-        return UIImage(named: named, in: bundle, compatibleWith: nil)
-    }
-}
-
-extension UIImage {
+    
+    /// Init image asset with name
+    /// - Parameter podAssetName: Image name
     convenience init?(podAssetName: String) {
         let podBundle = Bundle(for: ALBusSeatView.self)
-        
         /// A given class within your Pod framework
-        guard let url = podBundle.url(forResource: "ALBusSeatView",
-                                      withExtension: "bundle") else {
-                                        return nil
-                                        
+        guard let url = podBundle.url(forResource: "ALBusSeatView", withExtension: "bundle") else {
+            return nil
         }
-        
-        self.init(named: podAssetName,
-                  in: Bundle(url: url),
-                  compatibleWith: nil)
+        self.init(named: podAssetName, in: Bundle(url: url), compatibleWith: nil)
     }
 }
