@@ -30,9 +30,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ALBusSeatView/Classes/**/*'
   s.swift_version = "5.0"
-  # s.resource_bundles = {
-  #   'ALBusSeatView' => ['ALBusSeatView/Assets/*.png']
-  # }
+  s.resource_bundles = {
+      'ALBusSeatView' => ['ALBusSeatView/Assets/*.xcassets']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
