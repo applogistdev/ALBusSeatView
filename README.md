@@ -8,7 +8,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Screenshots
+| 1             |  2 |
+:-------------------------:|:-------------------------:
+![](./Screenshots/ss1.png)  |  ![](./Screenshots/ss2.png)
+
 
 ## Installation
 
@@ -17,6 +21,22 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'ALBusSeatView'
+```
+
+## Usage
+
+```swift
+
+// If you want to config more
+// let config = ALBusSeatViewConfig()
+// ALBusSeatView(withConfig: config)
+
+let seatView = ALBusSeatView()
+seatView.delegate = self
+seatView.dataSource = self
+
+view.addSubview(seatView)
+
 ```
 
 ## Author
