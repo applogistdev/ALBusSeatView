@@ -33,12 +33,13 @@ class MyViewController : UIViewController {
         config.soldWomanBGColor = UIColor(red: 1.0, green: 95.0 / 255.0, blue: 95.0 / 255.0, alpha: 1.0)
         config.soldManBGColor = UIColor(red: 61.0 / 255.0, green: 145.0 / 255.0, blue: 1.0, alpha: 1.0)
         config.seatShadowColor = UIColor(red: 146.0 / 255.0, green: 184.0 / 255.0, blue: 202.0 / 255.0, alpha: 0.5)
-//        config.busFrontImage = UIImage(named: "bus-front-view")
-//        config.busFrontImageWidth = 120
-//        config.floorSeperatorImage = UIImage(named: "bus-front-view")
+        config.busFrontImage = UIImage(named: "bus-front-view")
+        config.busFrontImageWidth = 120
+        config.floorSeperatorImage = UIImage(named: "bus-docker-front-view")
         config.seatRemoveImage = UIImage(named: "iconRemoveButton")
-        config.floorSeperatorWidth = 120
+        config.floorSeperatorWidth = 60
         config.centerHallInfoText = "Tüm koltukları görebilmek için kaydırınız!"
+        config.centerHallHeight = 40
         
         
         seatView = ALBusSeatView(withConfig: config)
