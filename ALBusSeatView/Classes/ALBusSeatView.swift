@@ -144,14 +144,9 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
             let seatNumber = dataSource?.seatView(self, seatNumberForIndex: indexPath) else {
                 return cell
         }
+        
         cell.title = seatNumber
         cell.type = seatType
-        
-        //TODO: Bazı otobüslerde en arka orta koltuk olabiliyor. Ona göre düzenleme yapılmalı
-        if ((indexPath.item - 2) % 5 == 0) {
-            cell.type = .none
-        }
-        
         cell.label.font = config.seatNumberFont
         cell.label.textColor = config.seatNumberColor
         
@@ -271,6 +266,7 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if cell.type == .empty {
+            repositionScrollView(forCell: cell)
             tooltip.hide(animated: false)
             showTooltip(fromCell: cell, indexPath: indexPath)
         }
@@ -282,8 +278,6 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.cellForItem(at: indexPath) as? ALBusSeatCell else {
             return false
         }
-        
-        calculateMargins(forCell: cell)
         
         if cell.type == .empty {
             return delegate?.seatView(self, shouldSelectAtIndex: indexPath, seatType: cell.type) ?? true
@@ -298,7 +292,10 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
 // MARK: - Tooltip
 extension ALBusSeatView {
     
-    func calculateMargins(forCell: UIView) {
+    
+    /// Reposition the scroll view according to selected seatview to make tooltip more visible and selectable
+    /// - Parameter forCell: Selected seatview to arrange scroll
+    func repositionScrollView(forCell: UIView) {
         
         let mustVisibleRate: CGFloat = 0.9 // Tooltip must visible width rate ()
         let marginThreshold = (tooltip.frame.width * mustVisibleRate) / 2
@@ -307,26 +304,32 @@ extension ALBusSeatView {
         let converted = forCell.convert(point, to: collectionView)
         
         let xOffset = collectionView.contentOffset.x
-        let leftMarginOk = marginThreshold <= converted.x
+        let leftMarginOk = marginThreshold <= converted.x - xOffset
         let rightMarginOk = marginThreshold <= (frame.width - converted.x + xOffset)
-        
-        debugPrint("threshold:\(marginThreshold) xOffset:\(xOffset) leftMargin: \(converted.x) rightMargin:\(frame.width - converted.x)")
-        
+//        debugPrint("threshold:\(marginThreshold) xOffset:\(xOffset) leftMargin: \(converted.x + abs(xOffset)) rightMargin:\(frame.width - converted.x)")
+//        debugPrint("leftOK: \(leftMarginOk) - rightOK: \(rightMarginOk)")
         if !leftMarginOk {
-            debugPrint("Needs to scroll left")
             let currentPoint = collectionView.contentOffset
             let targetPoint = CGPoint(x: currentPoint.x - marginThreshold, y: 0)
-            collectionView.setContentOffset(targetPoint, animated: true)
+            DispatchQueue.main.async {
+                self.collectionView.setContentOffset(targetPoint, animated: true)
+            }
         }
         
         if !rightMarginOk {
-            debugPrint("Needs to scroll right")
             let currentPoint = collectionView.contentOffset
             let targetPoint = CGPoint(x: currentPoint.x + marginThreshold, y: 0)
-            collectionView.setContentOffset(targetPoint, animated: true)
+            DispatchQueue.main.async {
+                self.collectionView.setContentOffset(targetPoint, animated: true)
+            }
         }
     }
     
+    
+    /// Display tooltip
+    /// - Parameters:
+    ///   - fromCell: To arrange tooltip position for this seatView
+    ///   - indexPath: To inform delegate which indexpath selected after tooltip selection
     func showTooltip(fromCell: ALBusSeatCell, indexPath: IndexPath) {
         if tooltip.isVisible {
             tooltip.hide()
