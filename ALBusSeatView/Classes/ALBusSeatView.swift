@@ -283,6 +283,8 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
             return false
         }
         
+        calculateMargins(forCell: cell)
+        
         if cell.type == .empty {
             return delegate?.seatView(self, shouldSelectAtIndex: indexPath, seatType: cell.type) ?? true
         } else if cell.type == .selected {
@@ -295,6 +297,35 @@ public class ALBusSeatView: UIView, UICollectionViewDelegate, UICollectionViewDa
 
 // MARK: - Tooltip
 extension ALBusSeatView {
+    
+    func calculateMargins(forCell: UIView) {
+        
+        let mustVisibleRate: CGFloat = 0.9 // Tooltip must visible width rate ()
+        let marginThreshold = (tooltip.frame.width * mustVisibleRate) / 2
+        
+        let point = forCell.topCenter
+        let converted = forCell.convert(point, to: collectionView)
+        
+        let xOffset = collectionView.contentOffset.x
+        let leftMarginOk = marginThreshold <= converted.x
+        let rightMarginOk = marginThreshold <= (frame.width - converted.x + xOffset)
+        
+        debugPrint("threshold:\(marginThreshold) xOffset:\(xOffset) leftMargin: \(converted.x) rightMargin:\(frame.width - converted.x)")
+        
+        if !leftMarginOk {
+            debugPrint("Needs to scroll left")
+            let currentPoint = collectionView.contentOffset
+            let targetPoint = CGPoint(x: currentPoint.x - marginThreshold, y: 0)
+            collectionView.setContentOffset(targetPoint, animated: true)
+        }
+        
+        if !rightMarginOk {
+            debugPrint("Needs to scroll right")
+            let currentPoint = collectionView.contentOffset
+            let targetPoint = CGPoint(x: currentPoint.x + marginThreshold, y: 0)
+            collectionView.setContentOffset(targetPoint, animated: true)
+        }
+    }
     
     func showTooltip(fromCell: ALBusSeatCell, indexPath: IndexPath) {
         if tooltip.isVisible {
