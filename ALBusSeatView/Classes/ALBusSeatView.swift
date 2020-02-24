@@ -236,6 +236,9 @@ extension ALBusSeatView:  UICollectionViewDelegate, UICollectionViewDataSource, 
         switch seatType {
         case .empty:
             cell.coverView.backgroundColor = config.seatEmptyBGColor
+        case .disabled:
+            cell.coverView.backgroundColor = configh.seatDisabledBGColor
+            cell.isUserInteractionEnabled = false
         case .selected:
             cell.coverView.backgroundColor = config.seatSelectedBGColor
             if config.seatRemoveImage != nil {
