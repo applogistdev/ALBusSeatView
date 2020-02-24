@@ -16,6 +16,9 @@ public class ALBusSeatViewConfig {
     /// Empty seat color
     open var seatEmptyBGColor: UIColor = .white
     
+    /// Disabled seat color
+    open var seatDisabledBGColor: UIColor = .gray
+    
     /// Selected seat color
     open var seatSelectedBGColor: UIColor = .green
     
