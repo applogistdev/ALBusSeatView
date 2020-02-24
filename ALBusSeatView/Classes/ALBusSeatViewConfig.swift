@@ -16,6 +16,9 @@ public class ALBusSeatViewConfig {
     /// Empty seat color
     open var seatEmptyBGColor: UIColor = .white
     
+    /// Seat color purchased by woman or man
+    open var seatSoldBGColor: UIColor = .gray
+    
     /// Selected seat color
     open var seatSelectedBGColor: UIColor = .green
     

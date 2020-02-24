@@ -11,6 +11,8 @@ import Foundation
 public enum ALBusSeatType: Int {
     /// Free to pick
     case empty
+    /// Already sold by woman or man
+    case sold
     /// Being selected
     case selected
     /// Already sold by woman
