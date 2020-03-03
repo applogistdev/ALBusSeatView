@@ -13,6 +13,9 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		833C026223FFFF8E00F43A9B /* StoryboardExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C026123FFFF8E00F43A9B /* StoryboardExampleViewController.swift */; };
+		83562B64240F0F7600D245D3 /* MockSeatCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83562B63240F0F7600D245D3 /* MockSeatCreater.swift */; };
+		83562B66240F11EC00D245D3 /* ExampleSeatConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83562B65240F11EC00D245D3 /* ExampleSeatConfig.swift */; };
+		83562B68240F135900D245D3 /* SeatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83562B67240F135900D245D3 /* SeatDataManager.swift */; };
 		D862B58410524A3197BEF61C /* Pods_ALBusSeatView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 705531B5C2945437DC8F3F46 /* Pods_ALBusSeatView_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		72ABA5275BF46B7D0D6C358A /* Pods-ALBusSeatView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALBusSeatView_Example.debug.xcconfig"; path = "Target Support Files/Pods-ALBusSeatView_Example/Pods-ALBusSeatView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		77AC98C0FBD699386331DBB2 /* Pods-ALBusSeatView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALBusSeatView_Example.release.xcconfig"; path = "Target Support Files/Pods-ALBusSeatView_Example/Pods-ALBusSeatView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		833C026123FFFF8E00F43A9B /* StoryboardExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExampleViewController.swift; sourceTree = "<group>"; };
+		83562B63240F0F7600D245D3 /* MockSeatCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSeatCreater.swift; sourceTree = "<group>"; };
+		83562B65240F11EC00D245D3 /* ExampleSeatConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSeatConfig.swift; sourceTree = "<group>"; };
+		83562B67240F135900D245D3 /* SeatDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatDataManager.swift; sourceTree = "<group>"; };
 		A07218BD1D0EE5CBFA9F89CD /* Pods-ALBusSeatView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALBusSeatView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ALBusSeatView_Tests/Pods-ALBusSeatView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9697C4A9753FE24CBCEDB02 /* Pods_ALBusSeatView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALBusSeatView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +95,9 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				83562B63240F0F7600D245D3 /* MockSeatCreater.swift */,
+				83562B65240F11EC00D245D3 /* ExampleSeatConfig.swift */,
+				83562B67240F135900D245D3 /* SeatDataManager.swift */,
 			);
 			name = "Example for ALBusSeatView";
 			path = ALBusSeatView;
@@ -260,8 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* MyViewController.swift in Sources */,
+				83562B68240F135900D245D3 /* SeatDataManager.swift in Sources */,
+				83562B64240F0F7600D245D3 /* MockSeatCreater.swift in Sources */,
 				833C026223FFFF8E00F43A9B /* StoryboardExampleViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				83562B66240F11EC00D245D3 /* ExampleSeatConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

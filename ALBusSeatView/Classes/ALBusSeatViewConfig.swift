@@ -1,7 +1,7 @@
 
 
 /// SeatView configuration class.
-public class ALBusSeatViewConfig {
+open class ALBusSeatViewConfig {
     
     // MARK: - Layout
     
