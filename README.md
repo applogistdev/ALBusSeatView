@@ -1,10 +1,15 @@
 # ALBusSeatView 💺
 
-[![Version](https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)[![License](https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)[![Platform](https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView)
+[![Version](https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView) [![License](https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView) [![Platform](https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat)](https://cocoapods.org/pods/ALBusSeatView) 
+
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+![](./Screenshots/seat-video.gif)
+
+
 
 ## Screenshots
 |           Start            |           Select           |      Gender Selection      |           Voilà!           |
@@ -37,7 +42,48 @@ seatView.dataSource = self
 
 view.addSubview(seatView)
 
+//ALBusSeatViewDataSource
+
+func seatView(_ seatView: ALBusSeatView, numberOfSeatInSection section: Int) -> Int {
+     return 43 // Total seat count
+}
+
+func seatView(_ seatView: ALBusSeatView, seatNumberForIndex indexPath: IndexPath) -> String {
+    return "10" // Seat Number
+}
+
+func seatView(_ seatView: ALBusSeatView,
+              seatTypeForIndex indexPath: IndexPath) -> ALBusSeatType {
+        
+    return .empty
+}
+
+
+// Seat Types
+
+public enum ALBusSeatType: Int {
+    /// Free to pick
+    case empty
+    /// Already sold by woman or man
+    case sold
+    /// Being selected
+    case selected
+    /// Already sold by woman
+    case soldWoman
+    /// Already sold by man
+    case soldMan
+    /// Not a seat. Can not be able to select
+    case none
+}
+
 ```
+
+
+
+## Documentation
+
+* [API Reference](https://applogistdev.github.io/ALBusSeatView/) 
+
 
 
 
@@ -55,6 +101,7 @@ view.addSubview(seatView)
 | Param                   | Desc | Default | Type |
 | ----------------------- | ---- | ------- | -------- |
 | seatEmptyBGColor        | Empty seat color | .white | UIColor |
+| seatSoldBGColor        | Seat color purchased by woman or man. (Common seat) | .gray | UIColor |
 | seatSelectedBGColor     | Selected seat color | .green | UIColor |
 | seatSoldWomanBGColor    | Seat color purchased by woman | .red | UIColor |
 | seatSoldManBGColor      | Seat color purchased by man | .blue | UIColor |

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'ALBusSeatView'
-    s.version          = '0.2.3'
+    s.version          = '0.2.4'
     s.summary          = 'A customizable bus seat selection view'
     
     # This description is used to generate tags and improve search results.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     s.description      = 'ALBusSeatView allows you to build the bus seat selection process easier and fully customizable'
     
     s.homepage         = 'https://github.com/applogistdev/ALBusSeatView'
-    s.screenshots      = 'https://raw.githubusercontent.com/applogistdev/ALBusSeatView/screenshot/Screenshots/ss1.png', 'https://raw.githubusercontent.com/applogistdev/ALBusSeatView/screenshot/Screenshots/ss2.png'
+    s.screenshots      = 'https://raw.githubusercontent.com/applogistdev/ALBusSeatView/master/Screenshots/ss1.png', 'https://raw.githubusercontent.com/applogistdev/ALBusSeatView/master/Screenshots/ss2.png'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'sonifex' => 'sonerguler93@gmail.com' }
     s.source           = { :git => 'https://github.com/applogistdev/ALBusSeatView.git', :tag => s.version.to_s }
