@@ -85,10 +85,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kf-Cp-vgJ" customClass="ALBusSeatView" customModule="ALBusSeatView">
-                                <rect key="frame" x="0.0" y="233.5" width="355" height="200"/>
+                                <rect key="frame" x="16" y="208.5" width="339" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="xpF-WW-d1X"/>
+                                    <constraint firstAttribute="height" constant="250" id="xpF-WW-d1X"/>
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-tE-If1">
@@ -104,10 +104,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2kf-Cp-vgJ" secondAttribute="trailing" constant="20" symbolic="YES" id="3lG-eF-gP4"/>
                             <constraint firstItem="0Is-tE-If1" firstAttribute="leading" secondItem="trJ-09-Wrv" secondAttribute="leading" symbolic="YES" id="L7b-C3-xe5"/>
+                            <constraint firstItem="2kf-Cp-vgJ" firstAttribute="leading" secondItem="trJ-09-Wrv" secondAttribute="leadingMargin" id="ag6-tl-wmk"/>
                             <constraint firstItem="2kf-Cp-vgJ" firstAttribute="centerY" secondItem="trJ-09-Wrv" secondAttribute="centerY" id="d9w-40-H5N"/>
-                            <constraint firstAttribute="trailing" secondItem="2kf-Cp-vgJ" secondAttribute="trailing" constant="20" symbolic="YES" id="efq-Fh-6BU"/>
-                            <constraint firstItem="2kf-Cp-vgJ" firstAttribute="leading" secondItem="trJ-09-Wrv" secondAttribute="leading" id="k3J-sE-5s7"/>
                             <constraint firstAttribute="trailing" secondItem="0Is-tE-If1" secondAttribute="trailing" symbolic="YES" id="nEl-xE-Eka"/>
                             <constraint firstItem="4i6-D9-wNa" firstAttribute="top" secondItem="0Is-tE-If1" secondAttribute="bottom" symbolic="YES" id="oK6-FM-Oe2"/>
                         </constraints>

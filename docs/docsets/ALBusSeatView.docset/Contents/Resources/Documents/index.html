@@ -4,97 +4,81 @@
     <title>ALBusSeatView  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
-    <script src="js/lunr.min.js" defer></script>
-    <script src="js/typeahead.jquery.js" defer></script>
-    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
-
-
     <a title="ALBusSeatView  Reference"></a>
-
-    <header class="header">
-      <p class="header-col header-col--primary">
-        <a class="header-link" href="index.html">
-          ALBusSeatView Docs
-        </a>
-         (100% documented)
-      </p>
-    
-      <p class="header-col--secondary">
-        <form role="search" action="search.json">
-          <input type="text" placeholder="Search documentation" data-typeahead>
-        </form>
-      </p>
-    
-    
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">ALBusSeatView Docs</a> (100% documented)</p>
+      </div>
     </header>
-
-    <p class="breadcrumbs">
-      <a class="breadcrumb" href="index.html">ALBusSeatView Reference</a>
-      <img class="carat" src="img/carat.png" />
-      ALBusSeatView  Reference
-    </p>
-
     <div class="content-wrapper">
-      <nav class="navigation">
+      <p id="breadcrumbs">
+        <a href="index.html">ALBusSeatView Reference</a>
+        <img id="carat" src="img/carat.png" />
+        ALBusSeatView  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ALBusLeftHandDriveLayout.html">ALBusLeftHandDriveLayout</a>
+                <a href="Classes/ALBusLeftHandDriveLayout.html">ALBusLeftHandDriveLayout</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ALBusSeatCell.html">ALBusSeatCell</a>
+                <a href="Classes/ALBusSeatCell.html">ALBusSeatCell</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ALBusSeatView.html">ALBusSeatView</a>
+                <a href="Classes/ALBusSeatView.html">ALBusSeatView</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ALBusSeatViewConfig.html">ALBusSeatViewConfig</a>
+                <a href="Classes/ALBusSeatViewConfig.html">ALBusSeatViewConfig</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/ALBusSeatType.html">ALBusSeatType</a>
+                <a href="Enums/ALBusSeatType.html">ALBusSeatType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/ALSelectionType.html">ALSelectionType</a>
+                <a href="Enums/ALSelectionType.html">ALSelectionType</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/ALBusSeatViewDataSource.html">ALBusSeatViewDataSource</a>
+                <a href="Protocols/ALBusSeatViewDataSource.html">ALBusSeatViewDataSource</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/ALBusSeatViewDelegate.html">ALBusSeatViewDelegate</a>
+                <a href="Protocols/ALBusSeatViewDelegate.html">ALBusSeatViewDelegate</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-
-        <section class="section">
-          <div class="section-content top-matter">
+        <section>
+          <section class="section">
             
             <h1 id='albusseatview' class='heading'>ALBusSeatView 💺</h1>
 
-<p><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat" alt="Version"></a><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat" alt="License"></a><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat" alt="Platform"></a></p>
+<p><a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/v/ALBusSeatView.svg?style=flat" alt="Version"></a> <a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/l/ALBusSeatView.svg?style=flat" alt="License"></a> <a href="https://cocoapods.org/pods/ALBusSeatView"><img src="https://img.shields.io/cocoapods/p/ALBusSeatView.svg?style=flat" alt="Platform"></a> </p>
 <h2 id='example' class='heading'>Example</h2>
 
 <p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+
+<p><img src="./Screenshots/seat-video.gif" alt=""></p>
 <h2 id='screenshots' class='heading'>Screenshots</h2>
 
 <table><thead>
@@ -130,7 +114,46 @@ it, simply add the following line to your Podfile:</p>
 
 <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">seatView</span><span class="p">)</span>
 
+<span class="c1">//ALBusSeatViewDataSource</span>
+
+<span class="kd">func</span> <span class="nf">seatView</span><span class="p">(</span><span class="n">_</span> <span class="nv">seatView</span><span class="p">:</span> <span class="kt">ALBusSeatView</span><span class="p">,</span> <span class="n">numberOfSeatInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="mi">43</span> <span class="c1">// Total seat count</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">seatView</span><span class="p">(</span><span class="n">_</span> <span class="nv">seatView</span><span class="p">:</span> <span class="kt">ALBusSeatView</span><span class="p">,</span> <span class="n">seatNumberForIndex</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"10"</span> <span class="c1">// Seat Number</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">seatView</span><span class="p">(</span><span class="n">_</span> <span class="nv">seatView</span><span class="p">:</span> <span class="kt">ALBusSeatView</span><span class="p">,</span>
+              <span class="n">seatTypeForIndex</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ALBusSeatType</span> <span class="p">{</span>
+
+    <span class="k">return</span> <span class="o">.</span><span class="n">empty</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Seat Types</span>
+
+<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ALBusSeatType</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="c1">/// Free to pick</span>
+    <span class="k">case</span> <span class="n">empty</span>
+    <span class="c1">/// Already sold by woman or man</span>
+    <span class="k">case</span> <span class="n">sold</span>
+    <span class="c1">/// Being selected</span>
+    <span class="k">case</span> <span class="n">selected</span>
+    <span class="c1">/// Already sold by woman</span>
+    <span class="k">case</span> <span class="n">soldWoman</span>
+    <span class="c1">/// Already sold by man</span>
+    <span class="k">case</span> <span class="n">soldMan</span>
+    <span class="c1">/// Not a seat. Can not be able to select</span>
+    <span class="k">case</span> <span class="k">none</span>
+<span class="p">}</span>
+
 </code></pre>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<ul>
+<li><a href="https://applogistdev.github.io/ALBusSeatView/">API Reference</a></li>
+</ul>
 <h2 id='config-albusseatviewconfig' class='heading'>Config (ALBusSeatViewConfig)</h2>
 <h4 id='layout' class='heading'>Layout</h4>
 
@@ -169,6 +192,12 @@ it, simply add the following line to your Podfile:</p>
 <td>seatEmptyBGColor</td>
 <td>Empty seat color</td>
 <td>.white</td>
+<td>UIColor</td>
+</tr>
+<tr>
+<td>seatSoldBGColor</td>
+<td>Seat color purchased by woman or man. (Common seat)</td>
+<td>.gray</td>
 <td>UIColor</td>
 </tr>
 <tr>
@@ -367,16 +396,14 @@ it, simply add the following line to your Podfile:</p>
 
 <p>ALBusSeatView is available under the MIT license. See the LICENSE file for more info.</p>
 
-          </div>
+          </section>
         </section>
-
-
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://github.com/applogistdev/ALBusSeatView" target="_blank" rel="external">sonifex</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
       </article>
     </div>
-    <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://github.com/applogistdev/ALBusSeatView" target="_blank" rel="external">sonifex</a>. All rights reserved. (Last updated: 2020-02-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-    </section>
   </body>
 </div>
 </html>
