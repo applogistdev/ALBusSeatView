@@ -6,6 +6,10 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+![](./Screenshots/seat-video.gif)
+
+
+
 ## Screenshots
 |           Start            |           Select           |      Gender Selection      |           Voilà!           |
 | :------------------------: | :------------------------: | :------------------------: | :------------------------: |
