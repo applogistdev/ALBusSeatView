@@ -58,6 +58,11 @@ class StoryboardExampleViewController: UIViewController {
         return list
     }
     
+    @IBAction func reloadButtonTapped(_ sender: UIBarButtonItem) {
+        selectedSeatlist.removeAll()
+        seatView.reload()
+    }
+    
 }
 
 

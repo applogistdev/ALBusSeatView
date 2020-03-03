@@ -164,6 +164,7 @@ public class ALBusSeatView: UIView {
     public func reload() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.tooltip.hide()
         }
     }
     

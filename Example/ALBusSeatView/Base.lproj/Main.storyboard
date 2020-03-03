@@ -91,12 +91,25 @@
                                     <constraint firstAttribute="height" constant="200" id="xpF-WW-d1X"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-tE-If1">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Reload" image="arrow.clockwise" catalog="system" id="Vg3-vc-Zlp">
+                                        <connections>
+                                            <action selector="reloadButtonTapped:" destination="tQs-oJ-RCo" id="VfO-xy-C1k"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="0Is-tE-If1" firstAttribute="leading" secondItem="trJ-09-Wrv" secondAttribute="leading" symbolic="YES" id="L7b-C3-xe5"/>
                             <constraint firstItem="2kf-Cp-vgJ" firstAttribute="centerY" secondItem="trJ-09-Wrv" secondAttribute="centerY" id="d9w-40-H5N"/>
                             <constraint firstAttribute="trailing" secondItem="2kf-Cp-vgJ" secondAttribute="trailing" constant="20" symbolic="YES" id="efq-Fh-6BU"/>
                             <constraint firstItem="2kf-Cp-vgJ" firstAttribute="leading" secondItem="trJ-09-Wrv" secondAttribute="leading" id="k3J-sE-5s7"/>
+                            <constraint firstAttribute="trailing" secondItem="0Is-tE-If1" secondAttribute="trailing" symbolic="YES" id="nEl-xE-Eka"/>
+                            <constraint firstItem="4i6-D9-wNa" firstAttribute="top" secondItem="0Is-tE-If1" secondAttribute="bottom" symbolic="YES" id="oK6-FM-Oe2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TIK-oR-xWh"/>
@@ -146,4 +159,7 @@
             <point key="canvasLocation" x="-1010.4" y="-65.217391304347828"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+    </resources>
 </document>

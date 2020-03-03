@@ -1,5 +1,5 @@
 PODS:
-  - ALBusSeatView (0.2.2)
+  - ALBusSeatView (0.2.3)
 
 DEPENDENCIES:
   - ALBusSeatView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ALBusSeatView: 1bc37d70a81acc04ddcda4efd09a373c8c3f73b1
+  ALBusSeatView: cad873a8b91b2de958b839ddc8b106a14d5e9c31
 
 PODFILE CHECKSUM: 49e8442bf5e018117e208d806a3394e0562060a3
 
