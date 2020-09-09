@@ -20,8 +20,8 @@ class MockSeatCreater {
     
     func create(count: Int) -> [SeatStub] {
         var list = [SeatStub]()
-        (0...count).forEach { (count) in
-            let isHall = (count - 2) % 5 == 0
+        (1...count).forEach { (count) in
+            let isHall = (count - 2) % 5 == 1
             let stub = SeatStub(id: UUID().uuidString,
                                 number: count,
                                 salable: Bool.random(),
