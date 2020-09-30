@@ -249,8 +249,16 @@ extension ALBusSeatView:  UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.label.textColor = config.seatNumberSelectedColor
         case .soldMan:
             cell.coverView.backgroundColor = config.seatSoldManBGColor
+            // Change text color if the config has a color for seat sold man
+            if let textColor = config.seatSoldManTextColor {
+                cell.label.textColor = textColor
+            }
         case .soldWoman:
             cell.coverView.backgroundColor = config.seatSoldWomanBGColor
+            // Change text color if the config has a color for seat sold woman
+            if let textColor = config.seatSoldWomanTextColor {
+                cell.label.textColor = textColor
+            }
         case .none:
             cell.coverView.backgroundColor = .clear
             cell.isUserInteractionEnabled = false
