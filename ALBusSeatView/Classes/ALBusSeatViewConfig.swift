@@ -29,10 +29,10 @@ public class ALBusSeatViewConfig {
     open var seatSoldManBGColor: UIColor = .blue
     
     /// Seat color purchased by woman
-    open var seatSoldWomanTextColor: UIColor = .black
+    open var seatSoldWomanTextColor: UIColor? = nil
     
     /// Seat color purchased by man
-    open var seatSoldManTextColor: UIColor = .black
+    open var seatSoldManTextColor: UIColor? = nil
     
     /// Seat corner radius
     open var seatCornerRadius: CGFloat = 8.0
