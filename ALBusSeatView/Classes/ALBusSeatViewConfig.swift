@@ -1,7 +1,7 @@
 
 
 /// SeatView configuration class.
-public class ALBusSeatViewConfig {
+open class ALBusSeatViewConfig {
     
     // MARK: - Layout
     
@@ -16,8 +16,8 @@ public class ALBusSeatViewConfig {
     /// Empty seat color
     open var seatEmptyBGColor: UIColor = .white
     
-    /// Disabled seat color
-    open var seatDisabledBGColor: UIColor = .gray
+    /// Seat color purchased by woman or man
+    open var seatSoldBGColor: UIColor = .gray
     
     /// Selected seat color
     open var seatSelectedBGColor: UIColor = .green

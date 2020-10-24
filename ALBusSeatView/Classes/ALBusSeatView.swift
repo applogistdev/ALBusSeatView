@@ -164,6 +164,7 @@ public class ALBusSeatView: UIView {
     public func reload() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.tooltip.hide()
         }
     }
     
@@ -236,9 +237,8 @@ extension ALBusSeatView:  UICollectionViewDelegate, UICollectionViewDataSource, 
         switch seatType {
         case .empty:
             cell.coverView.backgroundColor = config.seatEmptyBGColor
-        case .disabled:
-            cell.coverView.backgroundColor = configh.seatDisabledBGColor
-            cell.isUserInteractionEnabled = false
+        case .sold:
+            cell.coverView.backgroundColor = config.seatSoldBGColor
         case .selected:
             cell.coverView.backgroundColor = config.seatSelectedBGColor
             if config.seatRemoveImage != nil {
