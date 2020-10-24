@@ -1,5 +1,5 @@
 
-
+import UIKit
 /// SeatView configuration class.
 open class ALBusSeatViewConfig {
     
