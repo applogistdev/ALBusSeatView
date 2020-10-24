@@ -161,10 +161,14 @@ public class ALBusSeatView: UIView {
     
     
     /// Reloads the all data for seatView
-    public func reload() {
+    public func reload(scrollToLeft: Bool = false, animated: Bool = false) {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
             self.tooltip.hide()
+            
+            if scrollToLeft {
+                self.collectionView.setContentOffset(.zero, animated: animated)
+            }
         }
     }
     

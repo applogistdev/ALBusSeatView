@@ -30,6 +30,6 @@ class StoryboardExampleViewController: UIViewController {
     
     @IBAction func reloadButtonTapped(_ sender: UIBarButtonItem) {
         dataManager.selectedSeatlist.removeAll()
-        seatView.reload()
+        seatView.reload(scrollToLeft: true, animated: true)
     }
 }
